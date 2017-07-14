@@ -11,6 +11,7 @@ module Mina
     def on_each_server
       ensure!(:servers)
       fetch(:servers).each do |server|
+        set(:server, server)
         print_stdout "Server: #{server}"
         on_domain(server) { yield }
       end
